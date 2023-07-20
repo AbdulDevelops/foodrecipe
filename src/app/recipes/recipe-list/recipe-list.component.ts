@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Recipe } from '../recipe.model';
+
 @Component({
   selector: 'app-recipe-list',
   templateUrl: './recipe-list.component.html',
@@ -7,9 +8,12 @@ import { Recipe } from '../recipe.model';
 })
 export class RecipeListComponent implements OnInit {
   recipes: Recipe[] = [
-    new Recipe('simple test recipe', 'runing a test on Recipe',
-    'https://assets.bonappetit.com/photos/64934404ae1041da97d81470/4:3/w_1600%2Ch_1200%2Cc_limit/20230524-SEO-RECIPES-BON-APP24118.jpg')
-  ];
+    new Recipe('A test recipe', 'runing a test on Recipe',
+    'https://www.sheknows.com/wp-content/uploads/2018/08/ti8wzfbbvdspxo8dg1ci.jpeg?w=1920'),
+    new Recipe('A test recipe', 'runing a test on Recipe',
+    'https://www.sheknows.com/wp-content/uploads/2018/08/ti8wzfbbvdspxo8dg1ci.jpeg?w=1920'),
+
+  ]
 
   constructor(){}
 

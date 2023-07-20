@@ -1,0 +1,28 @@
+.list-group-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border: none;
+  background-color: #fcfcff;
+}
+
+.list-group-item:hover {
+  background-color: #ccf78f;
+}
+
+.list-group-item-heading {
+  margin: 0;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.list-group-item-text {
+  margin: 7px 0;
+}
+
+.img-responsive {
+  max-height: 250px;
+  max-width: 250px;
+  object-fit: cover;
+  margin-left: 10px;
+}
