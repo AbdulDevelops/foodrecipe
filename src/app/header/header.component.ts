@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-header',
@@ -6,18 +6,15 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-  showAbout:boolean = true; // You can change this based on some condition
-  showContact:boolean = true;
 
-  constructor(private router: Router) {}
+  @Output() featureAdding = new EventEmitter<string>();
 
-  goToHome() {
-    this.router.navigate(['/reciepes']);
+
+  constructor() {}
+
+  onSelect(feature:string) {
+    this.featureAdding.emit(feature);
+
   }
-
-  goToAbout() {
-    this.router.navigate(['/shopping-list']);
-  }
-
 
 }
