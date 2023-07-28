@@ -1,0 +1,51 @@
+/* General styles for the navigation */
+.navbar {
+  background-color: #225e9a; /* Set your desired background color */
+}
+
+.navbar-brand {
+  font-size: 1.5rem; /* Adjust the font size as needed */
+  font-weight: bold; /* Optionally, set the font weight */
+  color: #333; /* Set the text color */
+}
+
+.navbar-nav .nav-item {
+  margin-right: 15px; /* Add some spacing between nav items */
+}
+
+.nav-link {
+  color: #333; /* Set the text color */
+}
+.nav-link:hover {
+  background-color: #ccf78f; /* Set the text color */
+}
+/* Style the active link */
+.nav-link.active {
+  color: #007bff; /* Set the active link color */
+}
+
+/* Style the dropdown menu */
+.dropdown .btn {
+  background-color: #007bff; /* Set the button background color */
+  color: #fff; /* Set the text color */
+}
+
+.dropdown-menu {
+  background-color: #007bff; /* Set the dropdown menu background color */
+}
+
+.dropdown-item {
+  color: #fff; /* Set the text color */
+}
+
+.dropdown-item:hover {
+  background-color: #0056b3; /* Set the background color on hover */
+}
+
+/* Optional: Adjust spacing and alignment for better appearance */
+.container-fluid {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px;
+}

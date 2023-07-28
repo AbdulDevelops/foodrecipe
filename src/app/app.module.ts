@@ -12,6 +12,9 @@ import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-ed
 import { RecipeItemComponent } from './recipes/recipe-list/recipe-item/recipe-item.component';
 import {  CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormGroup, FormsModule } from '@angular/forms';
+import  appRoutes  from './routerConfig';
+import { RouterModule } from '@angular/router';
+
 
 
 @NgModule({
@@ -29,7 +32,8 @@ import { FormGroup, FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     NgbModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(appRoutes)
 
 
   ],
