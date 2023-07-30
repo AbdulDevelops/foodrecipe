@@ -1,0 +1,46 @@
+body {
+  font-family: Arial, sans-serif;
+  margin-top: 50px;
+}
+
+/* Style the container row */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Style the left column */
+.col-md-5 {
+  flex: 1;
+  max-width: 45%;
+  padding: 10px;
+
+}
+
+/* Style the right column */
+.col-md-7 {
+  flex: 1;
+  max-width: 55%;
+  padding: 10px;
+}
+
+/* Style the app-recipe-list component */
+app-recipe-list {
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 100px;
+}
+
+/* Style the app-recipe-detail component container */
+app-recipe-detail {
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 100px;
+
+}
+
+/* Style the "please Select a Recipe" paragraph */
+p {
+  font-size: 18px;
+  font-weight: bold;
+}
