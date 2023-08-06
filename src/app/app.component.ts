@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
 
   title = 'foodrecipe';
- feature:boolean|any;
+ //feature:boolean|any;
  loadedFeature ='recipe'
 
   onSelectingComponent(featureLoaded: string){

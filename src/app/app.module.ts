@@ -14,7 +14,7 @@ import {  CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormGroup, FormsModule } from '@angular/forms';
 import  appRoutes  from './routerConfig';
 import { RouterModule } from '@angular/router';
-
+import { DropdownDirective } from './shared/dropdown.directive';
 
 
 @NgModule({
@@ -27,6 +27,7 @@ import { RouterModule } from '@angular/router';
     ShoppingListComponent,
     ShoppingEditComponent,
   RecipeItemComponent,
+  DropdownDirective
   ],
 
   imports: [

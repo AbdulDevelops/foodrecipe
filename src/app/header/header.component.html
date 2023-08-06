@@ -7,7 +7,7 @@
        <li><a href="#" (click)="onSelect('recipe')">Recipes</a></li>
         <li><a href="#" (click)="onSelect('shopping-list')">Shopping List</a></li>
       </ul>
-      <div mdbDropdown class="dropdown">
+      <div mdbDropdown class="dropdown" appDropdown>
         <button
           class="btn btn-secondary dropdown-toggle"
           type="button"
@@ -18,7 +18,9 @@
           Manage
         </button>
         <ul mdbDropdownMenu class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-          <li><a class="dropdown-item active" href="#">Save Data</a></li>
+          <li><a class="dropdown-item " href="#">Save Data</a></li>
+      <hr>
+
           <li><a class="dropdown-item" href="#">Fetch Data</a></li>
         </ul>
       </div>
