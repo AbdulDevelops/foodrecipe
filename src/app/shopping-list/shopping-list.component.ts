@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { Ingredient } from '../shared/ingredient.model';
+import { ShoppingService } from './shopping.service';
+
 @Component({
   selector: 'app-shopping-list',
   templateUrl: './shopping-list.component.html',
@@ -8,10 +10,7 @@ import { Ingredient } from '../shared/ingredient.model';
 export class ShoppingListComponent {
 
 
-  ingredients: Ingredient[]= [
-    new Ingredient('Apples', 5),
-    new Ingredient('tomatoes', 10)
-  ]
+  ingredients: Ingredient[]|any;
   /* class Ingredient {
     constructor(public name: string, public quantity: number) {}
   }
@@ -24,13 +23,20 @@ export class ShoppingListComponent {
   const ingredients: Ingredient[] = [apples, tomatoes]; */
 
 
-  constructor(){
+  constructor(private shoppingService: ShoppingService){
 
   }
 
-  ngOnInit(){}
-
-  onIngredientAdded(ingredient:Ingredient){
-    this.ingredients.push(ingredient);
+  ngOnInit(){
+    this.ingredients= this.shoppingService.getShoppingCrendential()
+    this.shoppingService.shoppingListItems.subscribe((ingredient:Ingredient[])=>{
+      this.ingredients=ingredient;
+    })
   }
+
+ /*  onIngredientAdded(ingredient:Ingredient){
+    this.ingredients.shoppingListItems.subscribe((ingredient:Ingredient)=>{
+      this.ingredients=ingredient;
+    })
+  } */
 }
