@@ -8,10 +8,10 @@ import { ShoppingService } from '../shopping.service';
   styleUrls: ['./shopping-edit.component.css']
 })
 export class ShoppingEditComponent implements OnInit{
-  constructor(private shoppingService :ShoppingService){}
+  constructor(private shoppingService: ShoppingService){}
 
   @ViewChild('nameInput') nameInputRef : ElementRef|any;
-  @ViewChild('amountInput') amountInputRef:ElementRef|any;
+  @ViewChild('amountInput') amountInputRef: ElementRef|any;
 
 //@Output() addOfIngredient=  new EventEmitter<Ingredient>();
 ngOnInit(): void {

@@ -12,9 +12,12 @@ export class HeaderComponent {
 
   constructor() {}
 
-  onSelect(feature:string) {
+
+
+
+/*   onSelect(feature:string) {
     this.featureAdding.emit(feature);
 
-  }
+  } */
 
 }

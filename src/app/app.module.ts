@@ -1,3 +1,4 @@
+import { appRoutingModule } from './app-routing.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BsDropdownModule} from 'ngx-bootstrap/dropdown';
@@ -12,12 +13,14 @@ import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-ed
 import { RecipeItemComponent } from './recipes/recipe-list/recipe-item/recipe-item.component';
 import {  CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormGroup, FormsModule } from '@angular/forms';
-import  appRoutes  from './routerConfig';
+//import  appRoutes  from './routerConfig';
 import { RouterModule } from '@angular/router';
 import { DropdownDirective } from './shared/dropdown.directive';
 import { RecipesService } from './recipes/recipes.service';
 import { ShoppingService } from './shopping-list/shopping.service';
+import { DisplayComponent } from './display/display.component';
 
+import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
 
 @NgModule({
   declarations: [
@@ -29,14 +32,17 @@ import { ShoppingService } from './shopping-list/shopping.service';
     ShoppingListComponent,
     ShoppingEditComponent,
   RecipeItemComponent,
-  DropdownDirective
+  DropdownDirective,
+  DisplayComponent,
+  RecipeStartComponent
   ],
 
   imports: [
     BrowserModule,
     NgbModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes)
+    appRoutingModule
+   // RouterModule.forRoot(appRoutes)
 
 
   ],

@@ -12,7 +12,7 @@ export class ShoppingService {
 
   constructor() { }
 
-  ingredients: Ingredient[]= [
+ private ingredients: Ingredient[]= [
     new Ingredient('Apples', 5),
     new Ingredient('tomatoes', 10)
   ]
@@ -23,6 +23,15 @@ export class ShoppingService {
 
   addShoppingCrendential(ingredient:Ingredient){
     this.ingredients.push(ingredient)
+    this.shoppingListItems.emit(this.ingredients.slice())
+  }
+
+  addIngredients(ingredients:Ingredient[]){
+    for(let ingredient of ingredients){
+      this.addShoppingCrendential(ingredient);
+    //this.ingredients.push(...ingredients);
+
+    }
     this.shoppingListItems.emit(this.ingredients.slice())
   }
 }

@@ -10,9 +10,9 @@ export class RecipeItemComponent {
   @Input() recipe: Recipe|any;
   //@Output() recipeSelected= new EventEmitter<void>();
 
-constructor(private recipeService:RecipesService){}
 
-  onSelected(){
+
+/*   onSelected(){
 this.recipeService.recipeWasSelected.emit(this.recipe);
-  }
+  } */
 }

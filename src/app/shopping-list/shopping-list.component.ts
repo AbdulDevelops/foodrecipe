@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { Ingredient } from '../shared/ingredient.model';
 import { ShoppingService } from './shopping.service';
 
@@ -29,8 +29,8 @@ export class ShoppingListComponent {
 
   ngOnInit(){
     this.ingredients= this.shoppingService.getShoppingCrendential()
-    this.shoppingService.shoppingListItems.subscribe((ingredient:Ingredient[])=>{
-      this.ingredients=ingredient;
+    this.shoppingService.shoppingListItems.subscribe((ingredients:Ingredient[])=>{
+      this.ingredients=ingredients;
     })
   }
 
