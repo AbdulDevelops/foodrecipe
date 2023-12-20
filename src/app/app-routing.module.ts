@@ -8,6 +8,7 @@ import { DisplayComponent } from './display/display.component';
 
 import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.component';
 import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
+import { RecipeEditComponent } from './recipes/recipe-edit.component';
 
 const appRoutes: Routes = [
   //{path: '',  redirectTo:'/display',  pathMatch:'full' },
@@ -15,8 +16,12 @@ const appRoutes: Routes = [
   { path: 'display', component: DisplayComponent },
 
   { path: 'recipes', component: RecipesComponent, children: [
+    {path: 'new', component: RecipeEditComponent},
+    {path: ':id', component: RecipeDetailComponent },
+    {path: ':id/edit', component: RecipeEditComponent},
+    {path: ':id/new', component: RecipeStartComponent},
     {path: '', component: RecipeStartComponent},
-    {path: ':id', component: RecipeDetailComponent }
+
   ]},
   { path: 'shopping-list', component: ShoppingListComponent },
 

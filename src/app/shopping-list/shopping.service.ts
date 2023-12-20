@@ -1,5 +1,6 @@
+import { Subject } from 'rxjs';
 import { Ingredient } from './../shared/ingredient.model';
-import { EventEmitter, Injectable } from '@angular/core';
+import {  Injectable } from '@angular/core';
 //import { Ingredient } from '../shared/ingredient.model';
 
 @Injectable({
@@ -7,8 +8,8 @@ import { EventEmitter, Injectable } from '@angular/core';
 })
 export class ShoppingService {
 
-  shoppingListItems = new EventEmitter<Ingredient[]>();
-
+  shoppingListItems = new Subject<Ingredient[]>();
+  shoppingListUpdate =  new Subject<number>()
 
   constructor() { }
 
@@ -23,7 +24,7 @@ export class ShoppingService {
 
   addShoppingCrendential(ingredient:Ingredient){
     this.ingredients.push(ingredient)
-    this.shoppingListItems.emit(this.ingredients.slice())
+    this.shoppingListItems.next(this.ingredients.slice())
   }
 
   addIngredients(ingredients:Ingredient[]){
@@ -32,6 +33,6 @@ export class ShoppingService {
     //this.ingredients.push(...ingredients);
 
     }
-    this.shoppingListItems.emit(this.ingredients.slice())
+    this.shoppingListItems.next(this.ingredients.slice())
   }
 }

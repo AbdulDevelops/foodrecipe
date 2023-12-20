@@ -8,6 +8,8 @@ import { RecipesService } from '../../recipes.service';
 })
 export class RecipeItemComponent {
   @Input() recipe: Recipe|any;
+  @Input() index: number|any;
+
   //@Output() recipeSelected= new EventEmitter<void>();
 
 

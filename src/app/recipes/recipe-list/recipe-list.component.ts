@@ -1,6 +1,8 @@
 import { Component, OnInit, } from '@angular/core';
 import { Recipe } from '../recipe.model';
 import { RecipesService } from '../recipes.service';
+import { Ingredient } from 'src/app/shared/ingredient.model';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-recipe-list',
@@ -11,12 +13,19 @@ export class RecipeListComponent implements OnInit {
   //@Output() recipeWasSelected = new EventEmitter<Recipe>();
 
   recipes: Recipe[]|any;
-
-  constructor(private recipeService:RecipesService){}
+  activeIndex = -1;
+  constructor(private recipeService:RecipesService, private route:Router, private router:ActivatedRoute){}
 
   ngOnInit(){
     this.recipes=this.recipeService.getRecipeSelection();
   }
+   // Initialize the active index as -1 to start with no active selection
+
+   onAddingNewRecipe(){
+    this.route.navigate(['new'], {relativeTo: this.router})
+/* this.recipeService.addIngredientToShoppingList(this.recipes);
+console.log(this.recipeService.addIngredientToShoppingList(this.recipes)) */
+   }
 
 }
 /* @Output() recipeWasSelected = new EventEmitter<Recipe>();

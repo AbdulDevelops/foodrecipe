@@ -1,16 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { Ingredient } from '../shared/ingredient.model';
 import { ShoppingService } from './shopping.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-shopping-list',
   templateUrl: './shopping-list.component.html',
   styleUrls: ['./shopping-list.component.css']
 })
-export class ShoppingListComponent {
+export class ShoppingListComponent implements OnDestroy {
 
 
   ingredients: Ingredient[]|any;
+  ngSubscription : Subscription|any;
+
   /* class Ingredient {
     constructor(public name: string, public quantity: number) {}
   }
@@ -29,7 +32,7 @@ export class ShoppingListComponent {
 
   ngOnInit(){
     this.ingredients= this.shoppingService.getShoppingCrendential()
-    this.shoppingService.shoppingListItems.subscribe((ingredients:Ingredient[])=>{
+    this.ngSubscription= this.shoppingService.shoppingListItems.subscribe((ingredients:Ingredient[])=>{
       this.ingredients=ingredients;
     })
   }
@@ -39,4 +42,11 @@ export class ShoppingListComponent {
       this.ingredients=ingredient;
     })
   } */
+  ngOnDestroy(){
+this.ngSubscription.unsubscribe();
+  }
+
+  oneEdit(index:number){
+    this.shoppingService.shoppingListUpdate.next(index)
+  }
 }

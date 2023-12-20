@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./display.component.css']
 })
 export class DisplayComponent {
-
+  clickme(){
+    
+  }
 }

@@ -30,3 +30,8 @@
   object-fit: cover;
   margin-left: 10px;
 }
+.active {
+  /* Your active styles (e.g., background color, text color, etc.) */
+  background-color: #8f166b;
+  /* Add any other styles you want for the active list item */
+}

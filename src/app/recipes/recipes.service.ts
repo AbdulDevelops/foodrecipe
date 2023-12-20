@@ -1,7 +1,8 @@
-import { Injectable, EventEmitter, OnInit } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { Recipe } from './recipe.model';
 import { Ingredient } from '../shared/ingredient.model';
 import { ShoppingService } from '../shopping-list/shopping.service';
+import {Subject} from 'rxjs';
 
 
 @Injectable({
@@ -9,7 +10,7 @@ import { ShoppingService } from '../shopping-list/shopping.service';
 })
 export class RecipesService implements OnInit{
 
-recipeWasSelected = new EventEmitter<Recipe>();
+//recipeWasSelected = new Subject<Recipe>();
 
 
   private recipes: Recipe[] = [
@@ -49,5 +50,11 @@ ngOnInit(): void {
 this.shoppingService.addIngredients(ingredients);
   }
 
+/* addingNewRecipe(){
+  for(let recipeFind of this.recipes){
+    this.recipes.push(recipeFind)
 
+  } */
+  
 }
+

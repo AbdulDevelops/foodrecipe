@@ -1,0 +1,40 @@
+/* Style for the list item anchor tag */
+a.list-group-item {
+    display: block;
+    padding: 15px;
+    margin-bottom: 10px;
+    color: #333; /* Text color */
+    background-color: #fff; /* Background color */
+    border: 1px solid #ddd; /* Border color */
+    border-radius: 4px; /* Border radius */
+    text-decoration: none; /* Remove default underline */
+    transition: all 0.3s ease; /* Smooth transition */
+}
+
+/* Style for the active list item */
+a.list-group-item.active {
+    border-color: #337ab7; /* Border color for active state */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow for active state */
+}
+
+/* Style for heading in the list item */
+a.list-group-item h4 {
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #337ab7; /* Heading color */
+}
+
+/* Style for description in the list item */
+a.list-group-item p {
+    margin-bottom: 0;
+    color: #777; /* Description color */
+}
+
+/* Style for the image in the list item */
+a.list-group-item img {
+    max-width: 100px;
+    max-height: 50px;
+    border-radius: 4px;
+    border: 1px solid #ddd; /* Image border color */
+}
