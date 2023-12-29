@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-xs-12">
-    <form (ngSubmit)="onFormSubmition(formValues)" #formValues="ngForm" >
+    <form (ngSubmit)="onFormSubmition(formValues)" #formValues="ngForm">
       <div clas="row">
         <div class="col-sm-4 form-group">
           <label for="name">Name</label>
@@ -10,6 +10,8 @@
           name="name"
           ngModel
           required>
+          <span *ngIf="!formValues.valid && formValues.touched"> Please enter a Recipe Name</span>
+
         </div>
         <div class="col-sm-2 form-group">
           <label for="name">Amount</label>
@@ -20,11 +22,13 @@
           ngModel
           required
          pattern="^[0-9]+[1-9]*$">
+         <span *ngIf="!formValues.valid && formValues.touched"> Please enter a Amount</span>
+
         </div>
       </div>
       <div class="row">
         <div class="col-xs-12">
-          <button class="btn btn-success" type="submit" [disabled]="!formValues.valid" >Add</button>
+          <button class="btn btn-success" type="submit" [disabled]="!formValues.valid" >{{ editMode ? 'Update' : 'Add'}}</button>
           <button class="btn btn-danger" type="button">Delete</button>
           <button class="btn btn-primary" type="button">Clear</button>
         </div>

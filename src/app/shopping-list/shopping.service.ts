@@ -13,7 +13,7 @@ export class ShoppingService {
 
   constructor() { }
 
- private ingredients: Ingredient[]= [
+ private ingredients: Ingredient[]|any= [
     new Ingredient('Apples', 5),
     new Ingredient('tomatoes', 10)
   ]
@@ -21,18 +21,23 @@ export class ShoppingService {
   getShoppingCrendential(){
     return this.ingredients.slice();
   }
-
+getIngredient(index:number){
+  return this.ingredients[index]
+}
   addShoppingCrendential(ingredient:Ingredient){
     this.ingredients.push(ingredient)
     this.shoppingListItems.next(this.ingredients.slice())
   }
 
   addIngredients(ingredients:Ingredient[]){
-    for(let ingredient of ingredients){
-      this.addShoppingCrendential(ingredient);
-    //this.ingredients.push(...ingredients);
-
+    //for(let ingredient of ingredients){
+      //this.addShoppingCrendential(ingredient);
+    this.ingredients.push(...ingredients);
+    this.shoppingListItems.next(this.ingredients.slice())
     }
+   
+  updateIngredient(index:number, newUpdtIngredient:Ingredient){
+    this.ingredients[index]= newUpdtIngredient;
     this.shoppingListItems.next(this.ingredients.slice())
   }
 }

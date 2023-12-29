@@ -1,3 +1,4 @@
+import { FormGroup, NgForm } from '@angular/forms';
 import { Component, OnDestroy } from '@angular/core';
 import { Ingredient } from '../shared/ingredient.model';
 import { ShoppingService } from './shopping.service';
@@ -46,7 +47,9 @@ export class ShoppingListComponent implements OnDestroy {
 this.ngSubscription.unsubscribe();
   }
 
-  oneEdit(index:number){
-    this.shoppingService.shoppingListUpdate.next(index)
+  onEdit(index:number){
+      this.shoppingService.shoppingListUpdate.next(index)
+    
+
   }
 }

@@ -1,4 +1,4 @@
-import { Component, ElementRef, EventEmitter, OnDestroy, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, OnDestroy, OnInit, Output, ViewChild, Input } from '@angular/core';
 import { Ingredient } from 'src/app/shared/ingredient.model';
 import { ShoppingService } from '../shopping.service';
 import { NgForm } from '@angular/forms';
@@ -13,8 +13,10 @@ import { Subscription } from 'rxjs';
 export class ShoppingEditComponent implements OnInit, OnDestroy{
 
   subscription:Subscription|any
-  editMode = false
+   editMode = false
 editedItemIndex :number|any
+editedIngredient:any
+ @ViewChild('formValues') shoppingForm: NgForm|any
 
   constructor(private shoppingService: ShoppingService, private route:ActivatedRoute){}
 
@@ -28,19 +30,29 @@ editedItemIndex :number|any
 ngOnInit(): void {
   this.subscription= this.shoppingService.shoppingListUpdate.subscribe((index:number)=>{
     this.editedItemIndex=index
-    this.editMode= true;
-
+    this.editMode = true
+    this.editedIngredient= this.shoppingService.getIngredient(index)
+  this.shoppingForm.setValue({
+    'name': this.editedIngredient.name,
+    'amount': this.editedIngredient.amount
+  })
   })
   
   //const itemId = this.route.snapshot.paramMap.get('id')
 }
 
 onFormSubmition(form:NgForm){
-  //const value = form.value
+  const value = form.value
     /* const ingName = this.nameInputRef.nativeElement.value;
     const ingAmount = this.amountInputRef.nativeElement.value; */
-    const newIngredient = new Ingredient(form.value.name , form.value.amount);
-    this.shoppingService.addShoppingCrendential(newIngredient)
+    const newIngredient = new Ingredient(value.name ,value.amount);
+    if(this.editMode){
+      this.shoppingService.updateIngredient(this.editedItemIndex, newIngredient)
+    }
+    else{
+      this.shoppingService.addShoppingCrendential(newIngredient)
+
+    }
   }
 
   ngOnDestroy(){
