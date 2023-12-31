@@ -35,9 +35,13 @@ getIngredient(index:number){
     this.ingredients.push(...ingredients);
     this.shoppingListItems.next(this.ingredients.slice())
     }
-   
+
   updateIngredient(index:number, newUpdtIngredient:Ingredient){
     this.ingredients[index]= newUpdtIngredient;
+    this.shoppingListItems.next(this.ingredients.slice())
+  }
+  onDelete(index:number){
+    this.ingredients.splice(index,1)
     this.shoppingListItems.next(this.ingredients.slice())
   }
 }
