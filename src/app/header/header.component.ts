@@ -1,3 +1,4 @@
+import { DataStorageService } from './../shared/data-storage.service';
 import { Component, EventEmitter, Output } from '@angular/core';
 import { Router } from '@angular/router';
 @Component({
@@ -10,7 +11,7 @@ export class HeaderComponent {
   @Output() featureAdding = new EventEmitter<string>();
 
 
-  constructor() {}
+  constructor(private dataStoregeService: DataStorageService) {}
 
 
 //Pull Push
@@ -19,5 +20,8 @@ export class HeaderComponent {
     this.featureAdding.emit(feature);
 
   } */
+  onStoreRecipes(){
+this.dataStoregeService.StoreRecipes()
+  }
 
 }
