@@ -21,7 +21,7 @@ editedIngredient:any
   constructor(private shoppingService: ShoppingService, private route:ActivatedRoute){}
 
 
-/* 
+/*
   @ViewChild('nameInput') nameInputRef : ElementRef|any;
   @ViewChild('amountInput') amountInputRef: ElementRef|any;
  */
@@ -37,7 +37,7 @@ ngOnInit(): void {
     'amount': this.editedIngredient.amount
   })
   })
-  
+
   //const itemId = this.route.snapshot.paramMap.get('id')
 }
 
@@ -53,9 +53,24 @@ onFormSubmition(form:NgForm){
       this.shoppingService.addShoppingCrendential(newIngredient)
 
     }
+
+      this.editMode = false
+
+    this.shoppingForm.reset()
   }
 
   ngOnDestroy(){
 this.subscription.unsubscribe()
   }
+
+  onClearForm(event:Event){
+    this.shoppingForm.reset()
+this.editMode = false;
+    }
+
+    onDeleteIteme(){
+      this.onClearForm(this.editedItemIndex)
+     this.shoppingService.onDelete(this.editedItemIndex)
+    }
+
 }
