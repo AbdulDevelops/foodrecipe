@@ -12,7 +12,7 @@ import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
 import { RecipeItemComponent } from './recipes/recipe-list/recipe-item/recipe-item.component';
 import {  CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { FormGroup, FormsModule } from '@angular/forms';
+import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 //import  appRoutes  from './routerConfig';
 import { RouterModule } from '@angular/router';
 import { DropdownDirective } from './shared/dropdown.directive';
@@ -44,8 +44,10 @@ import { HttpClientModule} from '@angular/common/http'
     BrowserModule,
     NgbModule,
     FormsModule,
+    ReactiveFormsModule,
     appRoutingModule,
-  HttpClientModule
+  HttpClientModule,
+  
 
    // RouterModule.forRoot(appRoutes)
 

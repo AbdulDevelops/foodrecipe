@@ -11,7 +11,7 @@ import {Subject} from 'rxjs';
 export class RecipesService implements OnInit{
 
 //recipeWasSelected = new Subject<Recipe>();
-
+recipeAdded = new Subject<Recipe[]>()
 
   private recipes: Recipe[] = [
     new Recipe('Burger Recipe',
@@ -48,6 +48,11 @@ ngOnInit(): void {
 
   addIngredientToShoppingList(ingredients:Ingredient[]){
 this.shoppingService.addIngredients(ingredients);
+  }
+  addRecipeIngredient(recipe:Recipe[]){
+
+    this.recipes.push(...this.recipes)
+    this.recipeAdded.next(this.recipes.slice())
   }
 
 /* addingNewRecipe(){

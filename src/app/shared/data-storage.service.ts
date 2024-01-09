@@ -13,7 +13,7 @@ export class DataStorageService {
     }
 
     StoreRecipes(){
-        this.http.put('https://crud-angular-af8d6-default-rtdb.europe-west1.firebasedatabase.app/recipes', Recipe).subscribe(res=>{
+        this.http.put('https://crud-angular-af8d6-default-rtdb.europe-west1.firebasedatabase.app/recipes.json', Recipe).subscribe(res=>{
             console.log(res)
         })
     }

@@ -1,1 +1,62 @@
-<h2>Recipe Edit working</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <form [formGroup]="recipeForm">
+        <div class="row">
+          <div class="col-xs-12">
+        <button  class="btn btn-success" type="submit" >Save</button>
+        <button  class="btn btn-danger" type="button">Cancel</button>
+
+            <label for="name">Name</label>
+            <input
+              type="text"
+              id="name"
+              class="form-control"
+              name="name"
+              formControlName="name"
+              ngModel
+              required
+              #nameInput
+            />
+           
+          </div>
+
+          <div class="form-group">
+            <label for="desc">Description</label>
+            <input
+              type="desc"
+              id="desc"
+              class="form-control"
+              name="desc"
+              formControlName="description"
+              required
+              ngModel
+              email
+              
+            />
+            
+          </div>
+          <div class="form-group">
+            <label for="imgPath">Image</label>
+            <input
+              type="file"
+              id="imagePath"
+              class="form-control"
+              name="imagePath"
+              formControlName="imagePath"
+              required
+              ngModel
+              email
+              
+            />
+            
+          </div>
+        </div>
+
+      
+        <button  class="btn btn-primary" type="submit" >X</button>
+       
+      </form>
+    </div>
+  </div>
+</div>
