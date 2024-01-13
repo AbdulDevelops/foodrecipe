@@ -16,13 +16,13 @@ import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 //import  appRoutes  from './routerConfig';
 import { RouterModule } from '@angular/router';
 import { DropdownDirective } from './shared/dropdown.directive';
-import { RecipesService } from './recipes/recipes.service';
 import { ShoppingService } from './shopping-list/shopping.service';
 import { DisplayComponent } from './display/display.component';
 import { RecipeEditComponent } from './recipes/recipe-edit.component';
 import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
 import { DataStorageService } from './shared/data-storage.service';
 import { HttpClientModule} from '@angular/common/http'
+import { RecipeService } from './recipes/recipes.service';
 
 @NgModule({
   declarations: [
@@ -47,13 +47,13 @@ import { HttpClientModule} from '@angular/common/http'
     ReactiveFormsModule,
     appRoutingModule,
   HttpClientModule,
-  
+
 
    // RouterModule.forRoot(appRoutes)
 
 
   ],
-  providers: [RecipesService, ShoppingService, DataStorageService],
+  providers: [RecipeService, ShoppingService, DataStorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
