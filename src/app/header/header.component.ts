@@ -23,5 +23,9 @@ export class HeaderComponent {
   onStoreRecipes(){
 this.dataStoregeService.StoreRecipes()
   }
+  onFetschData(){
+    this.dataStoregeService.fetchRecipe()
+
+  }
 
 }

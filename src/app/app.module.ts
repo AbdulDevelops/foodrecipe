@@ -1,6 +1,8 @@
 import { appRoutingModule } from './app-routing.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule} from '@angular/common/http'
+
 import { BsDropdownModule} from 'ngx-bootstrap/dropdown';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -19,10 +21,9 @@ import { DropdownDirective } from './shared/dropdown.directive';
 import { ShoppingService } from './shopping-list/shopping.service';
 import { DisplayComponent } from './display/display.component';
 import { RecipeEditComponent } from './recipes/recipe-edit.component';
-import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
 import { DataStorageService } from './shared/data-storage.service';
-import { HttpClientModule} from '@angular/common/http'
 import { RecipeService } from './recipes/recipes.service';
+import { RecipesResolverService } from './recipes/recipes.resolver.service';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,6 @@ import { RecipeService } from './recipes/recipes.service';
   RecipeItemComponent,
   DropdownDirective,
   DisplayComponent,
-  RecipeStartComponent,
   RecipeEditComponent,
   ],
 
@@ -53,7 +53,7 @@ import { RecipeService } from './recipes/recipes.service';
 
 
   ],
-  providers: [RecipeService, ShoppingService, DataStorageService],
+  providers: [RecipeService, ShoppingService, DataStorageService, RecipesResolverService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

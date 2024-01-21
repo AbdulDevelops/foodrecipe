@@ -12,7 +12,7 @@ import { RecipeService } from './recipes.service';
 export class RecipeEditComponent implements OnInit {
   id: number|any;
   editMode = false;
-  recipeForm: FormGroup|String|any;
+  recipeForm: FormGroup|any;
 
   get recipeControls() {
     return (this.recipeForm.get('ingredients') as FormArray).controls
@@ -79,7 +79,7 @@ export class RecipeEditComponent implements OnInit {
       recipeName = recipe.name;
       recipeImagePath = recipe.imagePath;
       recipeDescription = recipe.description;
-      if (recipe['ingredients']) {
+      if (recipe.ingredients) {
         for (let ingredient of recipe.ingredients) {
           recipeIngredients.push(
             new FormGroup({

@@ -12,7 +12,6 @@
       -->
         <li><a routerLinkActive="active" class="btn" routerLink="/display">Display</a></li>
         <li><a routerLinkActive="active"  class="btn" routerLink="/recipes">Recipes</a></li>
-        <li><a routerLinkActive="active"  class="btn" routerLink="/recipe-edit">Recipes Edit</a></li>
         <li><a routerLinkActive="active" class="btn" routerLink="/shopping-list">Shopping List</a></li>
       </ul>
       <div mdbDropdown class="dropdown" appDropdown>
@@ -29,7 +28,7 @@
           <li><a class="dropdown-item " style="cursor:pointer;" (click)="onStoreRecipes()">Save Data</a></li>
       <hr>
 
-          <li><a class="dropdown-item" style="cursor:pointer;">Fetch Data</a></li>
+          <li class="dropdown-item" style="cursor:pointer;" (click)="onFetschData()">Fetch Data</li>
         </ul>
       </div>
     </div>

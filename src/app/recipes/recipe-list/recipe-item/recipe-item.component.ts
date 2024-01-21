@@ -9,7 +9,7 @@ import { RecipeService } from '../../recipes.service';
 export class RecipeItemComponent {
   @Input() recipe: Recipe|any;
   @Input() index: number|any;
-
+//parent to child communication
   //@Output() recipeSelected= new EventEmitter<void>();
 
 
