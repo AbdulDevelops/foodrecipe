@@ -9,6 +9,7 @@ import { DisplayComponent } from './display/display.component';
 import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.component';
 import { RecipeEditComponent } from './recipes/recipe-edit.component';
 import { RecipesResolverService } from './recipes/recipes.resolver.service';
+import { AuthComponent } from './auth/auth/auth.component';
 
 const appRoutes: Routes = [
   //{path: '',  redirectTo:'/display',  pathMatch:'full' },
@@ -23,6 +24,7 @@ const appRoutes: Routes = [
 
   ]},
   { path: 'shopping-list', component: ShoppingListComponent },
+  {path : 'auth', component: AuthComponent}
 
   //{ path: '**', component: PageNotFoundComponent }, Wildcard Route
 ];

@@ -24,6 +24,7 @@ import { RecipeEditComponent } from './recipes/recipe-edit.component';
 import { DataStorageService } from './shared/data-storage.service';
 import { RecipeService } from './recipes/recipes.service';
 import { RecipesResolverService } from './recipes/recipes.resolver.service';
+import { AuthComponent } from './auth/auth/auth.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { RecipesResolverService } from './recipes/recipes.resolver.service';
   DropdownDirective,
   DisplayComponent,
   RecipeEditComponent,
+  AuthComponent,
   ],
 
   imports: [

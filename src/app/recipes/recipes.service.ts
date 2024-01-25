@@ -10,7 +10,7 @@ export class RecipeService {
 
   recipesChanged = new Subject<Recipe[]>();
 
-  private recipes: Recipe[] = [
+  /* private recipes: Recipe[] = [
     new Recipe(
       'Tasty Schnitzel',
       'A super-tasty Schnitzel - just awesome!',
@@ -29,7 +29,8 @@ export class RecipeService {
         new Ingredient('Donner', 3)
 
       ])
-  ];
+  ]; */
+  private recipes: Recipe[] = []
 
   constructor(private shoppingService:ShoppingService) {}
 

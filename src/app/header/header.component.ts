@@ -24,7 +24,7 @@ export class HeaderComponent {
 this.dataStoregeService.StoreRecipes()
   }
   onFetschData(){
-    this.dataStoregeService.fetchRecipe()
+    this.dataStoregeService.fetchRecipe().subscribe()
 
   }
 
