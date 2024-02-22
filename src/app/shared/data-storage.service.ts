@@ -31,6 +31,7 @@ export class DataStorageService {
 
 
       }),
+      //trigger a side effect to update a state and managing a data flow
       tap(recipes => {
         this.recipeService.setRecipes(recipes)
 

@@ -1,3 +1,4 @@
+import {  NgForm } from '@angular/forms';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,11 +8,31 @@ import { Component } from '@angular/core';
 })
 export class AuthComponent {
 
+  username:string|any
+  password:string|any
+  isLoginMode: true|any
+isAuthenticate = false
 
-  onLogin(){
+Login: any;
+Sign: any;
+
+  onLogin():boolean{
+    if(this.username == this.username && this.password ==this.password){
+this.isAuthenticate = true
+      
+    }
+    
+return true;
 
   }
-  onSignIn(){
+  onSwitchMode(){
+    this.isLoginMode = !this.isLoginMode
+  this.isAuthenticate=false
+
+  }
+  onSubmitForm(form: NgForm){
+console.log(form);
+form.reset()
 
   }
 }
