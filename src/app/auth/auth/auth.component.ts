@@ -1,5 +1,6 @@
 import {  NgForm } from '@angular/forms';
 import { Component } from '@angular/core';
+import { DataStorageService } from 'src/app/shared/data-storage.service';
 
 @Component({
   selector: 'app-auth',
@@ -15,13 +16,14 @@ isAuthenticate = false
 
 Login: any;
 Sign: any;
+constructor(private dataStorage: DataStorageService){}
 
   onLogin():boolean{
     if(this.username == this.username && this.password ==this.password){
 this.isAuthenticate = true
-      
+
     }
-    
+
 return true;
 
   }
@@ -31,7 +33,9 @@ return true;
 
   }
   onSubmitForm(form: NgForm){
-console.log(form);
+    const email = form.value.email
+    const password = form.value.password
+    this.dataStorage
 form.reset()
 
   }
