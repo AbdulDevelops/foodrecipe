@@ -24,7 +24,10 @@ const appRoutes: Routes = [
 
   ]},
   { path: 'shopping-list', component: ShoppingListComponent },
-  {path : 'auth', component: AuthComponent}
+  {path : 'auth', component: AuthComponent
+    /* path: 'recipes', Component, RecipeListComponent,
+    path: 'shopping', Component, ShoppingListComponent
+  ] */}
 
   //{ path: '**', component: PageNotFoundComponent }, Wildcard Route
 ];
