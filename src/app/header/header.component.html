@@ -8,7 +8,7 @@
         <li><a href="#" (click)="onSelect('shopping-list')">Shopping List</a></li>
         <li><a routerLinkActive="active" routerLink="/recipes">Recipes</a></li>
         <li><a routerLinkActive="active" routerLink="/recipe-edit">Recipes Edit</a></li>
-
+//adding conditional tags
       -->
       <li><a routerLinkActive="active"  *ngIf="isAuthenticated" class="btn" routerLink="/recipes" >Recipes</a></li>
       <li><a routerLinkActive="active" *ngIf="!isAuthenticated" class="btn" routerLink="/auth" >Authentication</a></li>
