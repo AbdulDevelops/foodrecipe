@@ -57,7 +57,7 @@ signup(email:string, password: string ){
 }
 
 private handleAuthentication(email: string, userId: string, token:string, expiresIn: number ){
-  const expirationDate = new Date(new Date().getTime() + expiresIn * 100 )
+  const expirationDate = new Date(new Date().getTime() + expiresIn * 1000 )
   const user = new User( email, userId,  token, expirationDate)
   this.user.next(user)
 }

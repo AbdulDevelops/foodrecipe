@@ -1,25 +1,21 @@
+import { Subscription } from 'rxjs';
 import { DataStorageService } from './../shared/data-storage.service';
-import { Component, EventEmitter, Output } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { AuthService } from '../auth/auth.service';
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent {
-
-  @Output() featureAdding = new EventEmitter<string>();
+export class HeaderComponent implements OnInit, OnDestroy {
 
 
-  constructor(private dataStoregeService: DataStorageService) {}
+  isAuthenticated = false;
+  private userSub: Subscription|any
 
+  constructor(private dataStoregeService: DataStorageService, private authService: AuthService) {}
 
-//Pull Push
-
-/*   onSelect(feature:string) {
-    this.featureAdding.emit(feature);
-
-  } */
   onStoreRecipes(){
 this.dataStoregeService.StoreRecipes()
   }
@@ -27,5 +23,13 @@ this.dataStoregeService.StoreRecipes()
     this.dataStoregeService.fetchRecipe().subscribe()
 
   }
+  ngOnInit(): void {
+    this.authService.user.subscribe(user =>{
+      this.isAuthenticated = !!user
+    })
+  }
 
+  ngOnDestroy(): void {
+    this.userSub.unsubscribe()
+  }
 }

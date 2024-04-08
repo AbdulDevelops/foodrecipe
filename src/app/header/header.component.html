@@ -10,11 +10,16 @@
         <li><a routerLinkActive="active" routerLink="/recipe-edit">Recipes Edit</a></li>
 
       -->
-      <li><a routerLinkActive="active" class="btn" routerLink="/auth">Authentication</a></li>
-      <li><a routerLinkActive="active"  class="btn" routerLink="/recipes">Recipes</a></li>
+      <li><a routerLinkActive="active"  *ngIf="isAuthenticated" class="btn" routerLink="/recipes" >Recipes</a></li>
+      <li><a routerLinkActive="active" *ngIf="!isAuthenticated" class="btn" routerLink="/auth" >Authentication</a></li>
         <li><a routerLinkActive="active" class="btn" routerLink="/shopping-list">Shopping List</a></li>
       </ul>
-      <div mdbDropdown class="dropdown" appDropdown>
+      <ul class="nav navbar-nav navbar-right">
+        <li *ngIf="isAuthenticated">
+          <a style="cursor:pointer;" >Logout</a>
+        </li>
+      </ul>
+      <div mdbDropdown class="dropdown"  *ngIf="isAuthenticated" appDropdown>
         <button
           class="btn btn-secondary dropdown-toggle"
           type="button"
@@ -24,9 +29,8 @@
         >
           Manage
         </button>
-        <ul mdbDropdownMenu class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+        <ul mdbDropdownMenu class="dropdown-menu">
           <li><a class="dropdown-item " style="cursor:pointer;" (click)="onStoreRecipes()">Save Data</a></li>
-      <hr>
 
           <li class="dropdown-item" style="cursor:pointer;" (click)="onFetschData()">Fetch Data</li>
         </ul>

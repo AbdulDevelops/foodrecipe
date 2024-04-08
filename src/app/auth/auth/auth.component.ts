@@ -43,7 +43,7 @@ export class AuthComponent {
        this.authService.loginUser(email, password).subscribe(res=>
         console.log(res))
 this.loader = false
-
+this.route.navigate(['/recipes'])
 
     }
     else {
