@@ -1,9 +1,9 @@
 import { appRoutingModule } from './app-routing.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule} from '@angular/common/http'
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 
-import { BsDropdownModule} from 'ngx-bootstrap/dropdown';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HeaderComponent } from './header/header.component';
@@ -13,7 +13,7 @@ import { RecipeListComponent } from './recipes/recipe-list/recipe-list.component
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
 import { RecipeItemComponent } from './recipes/recipe-list/recipe-item/recipe-item.component';
-import {  CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 //import  appRoutes  from './routerConfig';
 import { RouterModule } from '@angular/router';
@@ -26,6 +26,7 @@ import { RecipeService } from './recipes/recipes.service';
 import { RecipesResolverService } from './recipes/recipes.resolver.service';
 import { AuthComponent } from './auth/auth/auth.component';
 import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
+import { AuthInterceptorService } from './auth/auth/auth-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -36,12 +37,12 @@ import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinne
     RecipeListComponent,
     ShoppingListComponent,
     ShoppingEditComponent,
-  RecipeItemComponent,
-  DropdownDirective,
-  DisplayComponent,
-  RecipeEditComponent,
-  AuthComponent,
-  LoadingSpinnerComponent,
+    RecipeItemComponent,
+    DropdownDirective,
+    DisplayComponent,
+    RecipeEditComponent,
+    AuthComponent,
+    LoadingSpinnerComponent,
   ],
 
   imports: [
@@ -50,14 +51,16 @@ import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinne
     FormsModule,
     ReactiveFormsModule,
     appRoutingModule,
-  HttpClientModule,
+    HttpClientModule,
 
 
-   // RouterModule.forRoot(appRoutes)
+    // RouterModule.forRoot(appRoutes)
 
 
   ],
-  providers: [RecipeService, ShoppingService, DataStorageService, RecipesResolverService],
+  providers: [RecipeService, ShoppingService, DataStorageService, RecipesResolverService, {
+     provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
