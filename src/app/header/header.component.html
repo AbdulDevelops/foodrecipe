@@ -11,7 +11,7 @@
 //adding conditional tags
       -->
       <li><a routerLinkActive="active"  *ngIf="isAuthenticated" class="btn" routerLink="/recipes" >Recipes</a></li>
-      <li><a routerLinkActive="active" *ngIf="!isAuthenticated" class="btn" routerLink="/auth" >Authentication</a></li>
+      <li><a routerLinkActive="active" *ngIf="isAuthenticated" class="btn" routerLink="/auth" >Authentication</a></li>
         <li><a routerLinkActive="active" class="btn" routerLink="/shopping-list">Shopping List</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
