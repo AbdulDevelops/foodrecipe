@@ -1,47 +1,35 @@
-
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Recipe Book</a>
 
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-       <!-- <li><a href="#" (click)="onSelect('recipe')">Recipes</a></li>
-        <li><a href="#" (click)="onSelect('shopping-list')">Shopping List</a></li>
-        <li><a routerLinkActive="active" routerLink="/recipes">Recipes</a></li>
-        <li><a routerLinkActive="active" routerLink="/recipe-edit">Recipes Edit</a></li>
-//adding conditional tags
-      -->
-      <li><a routerLinkActive="active"  *ngIf="isAuthenticated" class="btn" routerLink="/recipes" >Recipes</a></li>
-      <li><a routerLinkActive="active" *ngIf="isAuthenticated" class="btn" routerLink="/auth" >Authentication</a></li>
-        <li><a routerLinkActive="active" class="btn" routerLink="/shopping-list">Shopping List</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li *ngIf="isAuthenticated">
-          <a style="cursor:pointer;" >Logout</a>
-        </li>
-      </ul>
-      <div mdbDropdown class="dropdown"  *ngIf="isAuthenticated" appDropdown>
-        <button
-          class="btn btn-secondary dropdown-toggle"
-          type="button"
-          id="dropdownMenuButton2"
-          mdbDropdownToggle
-          aria-expanded="false"
-        >
-          Manage
-        </button>
-        <ul mdbDropdownMenu class="dropdown-menu">
-          <li><a class="dropdown-item " style="cursor:pointer;" (click)="onStoreRecipes()">Save Data</a></li>
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <li><a routerLinkActive="active" *ngIf="isAuthenticated" class="btn" routerLink="/recipes">Recipes</a></li>
+      <li><a routerLinkActive="active" *ngIf="!isAuthenticated" class="btn" routerLink="/auth">Authentication</a></li>
+      <li><a routerLinkActive="active" *ngIf="isAuthenticated" class="btn" routerLink="/shopping-list">Shopping List</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li *ngIf="isAuthenticated">
+        <a style="cursor:pointer;">Logout</a>
+      </li>
+    </ul>
+    <div mdbDropdown class="dropdown" *ngIf="isAuthenticated" appDropdown>
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" mdbDropdownToggle
+        aria-expanded="false">
+        Manage
+      </button>
+      <ul mdbDropdownMenu class="dropdown-menu">
+        <li><a class="dropdown-item " style="cursor:pointer;" (click)="onStoreRecipes()">Save Data</a></li>
 
-          <li class="dropdown-item" style="cursor:pointer;" (click)="onFetschData()">Fetch Data</li>
-        </ul>
-      </div>
+        <li class="dropdown-item" style="cursor:pointer;" (click)="onFetschData()">Fetch Data</li>
+      </ul>
     </div>
+  </div>
 </nav>
 
 
 
 
- <!-- <nav  class="navbar navbar-default">
+<!-- <nav  class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
       <a href="#" class="navbar-brand">Recipe Book</a>
