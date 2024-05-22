@@ -9,49 +9,61 @@ import { AuthResponseData } from '../auth.service';
 @Component({
   selector: 'app-auth',
   templateUrl: './auth.component.html',
-  styleUrls: ['./auth.component.css']
+  styleUrls: ['./auth.component.css'],
 })
 export class AuthComponent {
-
-  username: string | any
-  password: string | any
-  isLoginMode: true | any
-  errorMessage: string | any
-  loader: any = false
+  username: string | any;
+  password: string | any;
+  isLoginMode: true | any;
+  errorMessage: string | any;
+  loader: any = false;
   error: string | undefined;
   email: string | any;
- observeObj: Observable<AuthResponseData>|any
+  observeObj: Observable<AuthResponseData> | any;
 
-
-  constructor(private authService: AuthService, private route: Router) {
-
-  }
+  constructor(private authService: AuthService, private route: Router) {}
 
   onSwitchMode() {
-
-    this.isLoginMode = !this.isLoginMode
-
+    this.isLoginMode = !this.isLoginMode;
   }
   onSubmitForm(form: NgForm) {
     if (!form.valid) {
-      return
+      return;
     }
-    const email = form.value.email
-    const password = form.value.password
-    this.loader = true
+    
+    const email = form.value.email;
+    const password = form.value.password;
+    this.loader = true;
+    
     if (this.isLoginMode) {
-       this.authService.loginUser(email, password).subscribe(res=>
-        console.log(res))
-this.loader = false
-this.route.navigate(['/recipes'])
-
+      this.authService.loginUser(email, password).subscribe(
+        response => {
+          // Handle successful login here
+          console.log('Login successful', response);
+          this.loader = false;
+          this.route.navigate(['/recipes']);
+        },
+        error => {
+          // Handle error case
+          this.errorMessage = error.error?.message || 'An unknown error occurred!';
+          this.loader = false;
+        }
+      );
+    } else {
+      this.authService.signup(email, password).subscribe(
+        resData => {
+          // Handle successful signup here
+          console.log(resData);
+          this.loader = false;
+          form.reset();
+        },
+        error => {
+          // Handle error case
+          this.errorMessage = error.error?.message || 'ERROR: Email already exists';
+          this.loader = false;
+        }
+      );
     }
-    else {
-       this.authService.signup(email, password).subscribe(resData=> console.log(resData))
-this.loader = false
-    form.reset()
-
+    
   }
-
-}
 }

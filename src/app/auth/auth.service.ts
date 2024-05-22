@@ -54,15 +54,25 @@ export class AuthService {
     return this.http.post<AuthResponseData>('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBlcef81MdKNXmGQEWeXJ4lfwf2K1Chuuw',
       loginData).pipe(
         catchError(errorRes => {
-          let errorMessage = 'An unknown error occured!'
-          if (!errorRes.error || !errorRes.error.error) {
-            return throwError(() => errorMessage)
-          };
-          switch (errorRes.error.error.message) {
-            case 'EMAIL_EXISTS':
-              this.errorMessage = 'this email exists already'
+          let errorMessage = 'An unknown error occurred!';
+          if (!errorRes.error || !errorRes.error.error || !errorRes.error.error.message) {
+            switch (errorRes.error.error.errors.message) {
+              case 'EMAIL_EXISTS':
+                errorMessage = 'This email exists already.';
+                break;
+              case 'EMAIL_NOT_FOUND':
+                errorMessage = 'This email does not exist.';
+                break;
+              case 'INVALID_PASSWORD':
+                errorMessage = 'This password is not correct.';
+                break;
+              // Add more cases as needed based on the possible error messages from your backend
+              default:
+                errorMessage = 'An unknown error occurred!';
+            }
           }
-          return throwError(() => errorMessage)
+          return throwError(() => errorMessage);
+        
         }),
         tap(resData => {
           this.handleAuthentication(resData.email, resData.localId, resData.idToken, +resData.expiresIn)
@@ -75,6 +85,10 @@ export class AuthService {
     const expirationDate = new Date(new Date().getTime() + expiresIn * 1000)
     const user = new User(email, userId, token, expirationDate)
     this.user.next(user)
+  }
+
+  logout(){
+    this.user.next(null);
   }
 
 }

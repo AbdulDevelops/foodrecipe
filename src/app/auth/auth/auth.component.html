@@ -17,7 +17,7 @@
         />
       </div>
       <div>
-        //
+        
         <label for="password">Password</label>
         <input
           type="password"
@@ -35,7 +35,7 @@
       </p>
       <div >
         <button class="btn btn-primary" type="submit" [disabled]="!authForm.valid">
-          {{ isLoginMode ? "onLogin" : "Sign Up" }}
+          {{ isLoginMode ? "Login" : "Sign Up" }}
         </button>
         |
         <button class="btn btn-primary" (click)="onSwitchMode()">

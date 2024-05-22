@@ -2,32 +2,71 @@
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Recipe Book</a>
 
-    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-      <li><a routerLinkActive="active" *ngIf="isAuthenticated" class="btn" routerLink="/recipes">Recipes</a></li>
-      <li><a routerLinkActive="active" *ngIf="!isAuthenticated" class="btn" routerLink="/auth">Authentication</a></li>
-      <li><a routerLinkActive="active" *ngIf="isAuthenticated" class="btn" routerLink="/shopping-list">Shopping List</a></li>
+    <ul class="navbar-nav me-auto mb-5 mb-lg-0">
+      <li>
+        <a
+          routerLinkActive="active"
+          *ngIf="!isAuthenticated"
+          class="btn"
+          routerLink="/auth"
+          >Authentication</a
+        >
+      </li>
+      <li>
+        <a
+          routerLinkActive="active"
+          *ngIf="isAuthenticated"
+          class="btn"
+          routerLink="/recipes"
+          >Recipes</a
+        >
+      </li>
+      <li>
+        <a
+          routerLinkActive="active"
+          *ngIf="isAuthenticated"
+          class="btn"
+          routerLink="/shopping-list"
+          >Shopping List</a
+        >
+      </li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li *ngIf="isAuthenticated">
-        <a style="cursor:pointer;">Logout</a>
+        <a style="cursor: pointer" (click)="onlogOut()">Logout</a>
       </li>
     </ul>
     <div mdbDropdown class="dropdown" *ngIf="isAuthenticated" appDropdown>
-      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" mdbDropdownToggle
-        aria-expanded="false">
+      <button
+        class="btn btn-secondary dropdown-toggle"
+        type="button"
+        id="dropdownMenuButton2"
+        mdbDropdownToggle
+        aria-expanded="false"
+      >
         Manage
       </button>
       <ul mdbDropdownMenu class="dropdown-menu">
-        <li><a class="dropdown-item " style="cursor:pointer;" (click)="onStoreRecipes()">Save Data</a></li>
+        <li>
+          <a
+            class="dropdown-item"
+            style="cursor: pointer"
+            (click)="onStoreRecipes()"
+            >Save Data</a
+          >
+        </li>
 
-        <li class="dropdown-item" style="cursor:pointer;" (click)="onFetschData()">Fetch Data</li>
+        <li
+          class="dropdown-item"
+          style="cursor: pointer"
+          (click)="onFetschData()"
+        >
+          Fetch Data
+        </li>
       </ul>
     </div>
   </div>
 </nav>
-
-
-
 
 <!-- <nav  class="navbar navbar-default">
   <div class="container-fluid">
