@@ -24,7 +24,7 @@ export class DataStorageService {
   }
   fetchRecipe() {
 
-        return this.http.get<Recipe[]>('https://angular-http-example-db8a6-default-rtdb.europe-west1.firebasedatabase.app/recipes.json')
+      return this.http.get<Recipe[]>('https://angular-http-example-db8a6-default-rtdb.europe-west1.firebasedatabase.app/recipes.json')
       .pipe(map(recipes => {
       return recipes.map((recipe:any) => {
         return { ...recipe, ingredients: recipe.ingredients ? recipe.ingredients : [] }

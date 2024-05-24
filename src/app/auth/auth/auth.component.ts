@@ -36,33 +36,32 @@ export class AuthComponent {
     this.loader = true;
     
     if (this.isLoginMode) {
-      this.authService.loginUser(email, password).subscribe(
-        response => {
+      this.authService.loginUser(email, password).subscribe({
+        next: (response:any) =>{
           // Handle successful login here
-          console.log('Login successful', response);
-          this.loader = false;
-          this.route.navigate(['/recipes']);
-        },
-        error => {
+          console.log('Login successful', response),
+           this.loader = false,
+          this.route.navigate(['/recipes'])
+         }, error: (e)=> {
           // Handle error case
-          this.errorMessage = error.error?.message || 'An unknown error occurred!';
+          this.errorMessage = e.error?.message || 'An unknown error occurred!';
           this.loader = false;
         }
-      );
+    });
     } else {
-      this.authService.signup(email, password).subscribe(
-        resData => {
+      this.authService.signup(email, password).subscribe({
+        next: (resData:any) => {
           // Handle successful signup here
-          console.log(resData);
+          console.log('Signup Successful',resData);
           this.loader = false;
           form.reset();
         },
-        error => {
+        error: (e) => {
           // Handle error case
-          this.errorMessage = error.error?.message || 'ERROR: Email already exists';
+          this.errorMessage = e.error?.message || 'ERROR: Email already exists';
           this.loader = false;
         }
-      );
+    });
     }
     
   }

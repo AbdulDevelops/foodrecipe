@@ -21,8 +21,17 @@ export class HeaderComponent implements OnInit, OnDestroy {
 this.dataStoregeService.StoreRecipes()
   }
   onFetschData(){
-    this.dataStoregeService.fetchRecipe().subscribe()
-
+    this.dataStoregeService.fetchRecipe().subscribe({
+      next: recipes => {
+        console.log('Fetched recipes:', recipes);
+      },
+      error: error => {
+        console.error('Error fetching recipes:', error.message, error);
+      },
+      complete: () => {
+        console.log('Fetch completed');
+      }
+    });
   }
   ngOnInit(): void {
     this.authService.user.subscribe(user =>{
@@ -31,6 +40,7 @@ this.dataStoregeService.StoreRecipes()
   }
 
   ngOnDestroy(): void {
+    if(this.userSub)
     this.userSub.unsubscribe()
   }
 
