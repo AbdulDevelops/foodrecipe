@@ -38,12 +38,10 @@ export class AuthComponent {
     if (this.isLoginMode) {
       this.authService.loginUser(email, password).subscribe({
         next: (response:any) =>{
-          // Handle successful login here
           console.log('Login successful', response),
            this.loader = false,
           this.route.navigate(['/recipes'])
          }, error: (e)=> {
-          // Handle error case
           this.errorMessage = e.error?.message || 'An unknown error occurred!';
           this.loader = false;
         }
@@ -51,13 +49,11 @@ export class AuthComponent {
     } else {
       this.authService.signup(email, password).subscribe({
         next: (resData:any) => {
-          // Handle successful signup here
           console.log('Signup Successful',resData);
           this.loader = false;
           form.reset();
         },
         error: (e) => {
-          // Handle error case
           this.errorMessage = e.error?.message || 'ERROR: Email already exists';
           this.loader = false;
         }

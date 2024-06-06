@@ -20,7 +20,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   onStoreRecipes(){
 this.dataStoregeService.StoreRecipes()
   }
-  onFetschData(){
+  onFetchData(){
     this.dataStoregeService.fetchRecipe().subscribe({
       next: recipes => {
         console.log('Fetched recipes:', recipes);
@@ -36,6 +36,12 @@ this.dataStoregeService.StoreRecipes()
   ngOnInit(): void {
     this.authService.user.subscribe(user =>{
       this.isAuthenticated = !!user
+    /*   if (user) {
+        this.isAuthenticated = true;
+      } else {
+        this.isAuthenticated = false;
+      } */
+      
     })
   }
 
