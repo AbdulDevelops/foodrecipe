@@ -27,6 +27,7 @@ import { RecipesResolverService } from './recipes/recipes.resolver.service';
 import { AuthComponent } from './auth/auth/auth.component';
 import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
 import { AuthInterceptorService } from './auth/auth/auth-interceptor.service';
+import { ErrorAlertComponent } from './error-alert/error-alert.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { AuthInterceptorService } from './auth/auth/auth-interceptor.service';
     RecipeEditComponent,
     AuthComponent,
     LoadingSpinnerComponent,
+    ErrorAlertComponent,
   ],
 
   imports: [

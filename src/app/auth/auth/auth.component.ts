@@ -17,7 +17,7 @@ export class AuthComponent {
   isLoginMode: true | any;
   errorMessage: string | any;
   loader: any = false;
-  error: string | undefined;
+  error: string |any;
   email: string | any;
   observeObj: Observable<AuthResponseData> | any;
 
@@ -60,5 +60,8 @@ export class AuthComponent {
     });
     }
     
+  }
+  onClose(){
+    this.errorMessage =null
   }
 }
