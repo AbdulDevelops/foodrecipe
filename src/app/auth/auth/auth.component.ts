@@ -42,7 +42,7 @@ export class AuthComponent {
            this.loader = false,
           this.route.navigate(['/recipes'])
          }, error: (e)=> {
-          this.errorMessage = e.error?.message || 'An unknown error occurred!';
+          this.errorMessage = e.error?.message || 'ERROR: Password is wrong';
           this.loader = false;
         }
     });

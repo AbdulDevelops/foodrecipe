@@ -16,7 +16,10 @@
     z-index: 100;
     background-color: white;
     box-shadow: 0 2px 8px rgba(0,0,0,0.26);
+    border: 1px solid #f00; /* Red border */
+    color: #f00;
 }
 .alert-box-action{
-    text-align:right
+    text-align:right;
+
 }

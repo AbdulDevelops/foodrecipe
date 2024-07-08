@@ -56,7 +56,7 @@ export class AuthService {
         catchError(errorRes => {
           let errorMessage = 'An unknown error occurred!';
           if (!errorRes.error || !errorRes.error.error || !errorRes.error.error.message) {
-            switch (errorRes.error.error.errors.message) {
+            /* switch (errorRes.error.error.errors.message) {
               case 'EMAIL_EXISTS':
                 errorMessage = 'This email exists already.';
                 break;
@@ -69,7 +69,7 @@ export class AuthService {
               // Add more cases as needed based on the possible error messages from your backend
               default:
                 errorMessage = 'An unknown error occurred!';
-            }
+            } */
           }
           return throwError(() => errorMessage);
         

@@ -5,7 +5,7 @@
   padding: 0.5rem 1rem;
 
   .navbar-brand {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     font-weight: bold;
     color: #338a50;
     &:hover {
@@ -114,4 +114,9 @@
   margin-right: 18px; /* Adjust the spacing as needed */
   color:#ffffff;
   background-color: red;
+}
+.nav-logo {
+  width: 75px;  /* Adjust the size as needed */
+  height: auto;
+  margin-right: 5px;
 }
