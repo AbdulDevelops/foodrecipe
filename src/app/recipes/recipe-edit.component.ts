@@ -19,7 +19,7 @@ export class RecipeEditComponent implements OnInit {
   }
 
   constructor(private route: ActivatedRoute,
-              private recipeService:RecipeService,
+              private recipeService:RecipeService, 
               private router: Router) {
   }
 
@@ -78,7 +78,7 @@ export class RecipeEditComponent implements OnInit {
       const recipe = this.recipeService.getRecipe(this.id);
       recipeName = recipe.name;
       recipeImagePath = recipe.imagePath;
-      recipeDescription = recipe.description;
+      recipeDescription = recipe.description; 	
       if (recipe.ingredients) {
         for (let ingredient of recipe.ingredients) {
           recipeIngredients.push(

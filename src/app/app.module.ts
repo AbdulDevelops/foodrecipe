@@ -28,6 +28,7 @@ import { AuthComponent } from './auth/auth/auth.component';
 import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
 import { AuthInterceptorService } from './auth/auth/auth-interceptor.service';
 import { ErrorAlertComponent } from './error-alert/error-alert.component';
+import { PracticeComponent } from './practice/practice.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { ErrorAlertComponent } from './error-alert/error-alert.component';
     AuthComponent,
     LoadingSpinnerComponent,
     ErrorAlertComponent,
+    PracticeComponent,
   ],
 
   imports: [

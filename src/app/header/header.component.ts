@@ -11,7 +11,7 @@ import { AuthService } from '../auth/auth.service';
 })
 export class HeaderComponent implements OnInit, OnDestroy {
 
-
+ tryArray = ['apple', 'mango', 'orange', 'Kiwi','Banana' ]
   isAuthenticated = false;
   private userSub: Subscription|any
 

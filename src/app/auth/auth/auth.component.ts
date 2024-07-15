@@ -21,6 +21,8 @@ export class AuthComponent {
   email: string | any;
   observeObj: Observable<AuthResponseData> | any;
 
+
+
   constructor(private authService: AuthService, private route: Router) {}
 
   onSwitchMode() {

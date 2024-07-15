@@ -1,3 +1,4 @@
+import { PracticeComponent } from './practice/practice.component';
 import { RecipeListComponent } from './recipes/recipe-list/recipe-list.component';
 
  import { ShoppingListComponent } from './shopping-list/shopping-list.component';
@@ -20,9 +21,10 @@ const appRoutes: Routes = [
     {path: 'new', component: RecipeEditComponent},
     {path: ':id', component: RecipeDetailComponent, resolve: [RecipesResolverService]},
     {path: ':id/edit', component: RecipeEditComponent, resolve: [RecipesResolverService]},
-    {path: ':id', component: RecipeDetailComponent, },
-
+    {path: ':id', component: RecipeDetailComponent },
+    
   ]},
+  {path:  'practice', component: PracticeComponent},
   { path: 'shopping-list', component: ShoppingListComponent },
   {path : 'auth', component: AuthComponent
     /* path: 'recipes', Component, RecipeListComponent,
