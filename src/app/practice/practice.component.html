@@ -1,2 +1,15 @@
-<div *ngFor="let fruit of nameVeg, let i=index">
-    {{i}}-{{fruit.email}}</div>
+<div class="row" >
+
+    <div class="col-xs-12">
+        <p *ngFor="let fruit of tryArray, let i=index">
+            {{i}}-{{fruit}}</p>
+            <input type="text" [(ngModel)]="fruitName">
+           <div>
+            {{fruitName}}
+
+           </div> 
+        </div>
+        <button class="addingList" (click)="onAddInList()">Add in List</button>
+        <button class="deletingList" (click)="onDelInList()">Delete</button>
+
+</div>

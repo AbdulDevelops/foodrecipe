@@ -1,0 +1,16 @@
+.addingList{
+    margin-top: 10px;
+    margin-left: 12px;
+    width: 15%;
+    background-color: green;
+    color: aliceblue;
+    border-radius: 5px;
+}
+.deletingList{
+    margin-top: 10px;
+    margin-left: 12px;
+    width: 15%;
+    background-color: red;
+    color: aliceblue;
+    border-radius: 5px;
+}

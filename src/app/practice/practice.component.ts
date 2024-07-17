@@ -8,5 +8,13 @@ import { Component } from '@angular/core';
 export class PracticeComponent {
   tryArray:[]|any= ['Apple', 'Orange', 'Banana', 'Mango']
   nameVeg:[]|any=[{name:'Carrot'}, {email:'Pease@web.com'}, {phone: '017642047721'}]
+ fruitName: string|any
 
+  onAddInList(){
+    this.tryArray.push(this.fruitName)
+  }
+
+  onDelInList(){
+    this.tryArray.pop(this.tryArray)
+  }
 }
